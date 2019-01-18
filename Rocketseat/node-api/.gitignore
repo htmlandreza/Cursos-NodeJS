@@ -1,4 +1,4 @@
 # GIT IGNORE
 
 #Pastas de Referências
-#node_modules/
+node_modules/
