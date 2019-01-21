@@ -1,5 +1,6 @@
 // Importando
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
 const ProductSchema = new mongoose.Schema ({
     // campos
@@ -21,6 +22,8 @@ const ProductSchema = new mongoose.Schema ({
         default: Date.now, // data de registro
     },
 });
+
+ProductSchema.plugin(mongoosePaginate);
 
 // Registrando um model
 mongoose.model("Product", ProductSchema);
