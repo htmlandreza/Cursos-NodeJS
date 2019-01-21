@@ -6,8 +6,9 @@ const Product = mongoose.model('Product');
 
 // Objeto
 module.exports = {
-    async index(req, res){
-        const products = await Product.find(); // busca os registros
+    async index(req, res){ // busca os registros
+        const { page = 1 } = req.query; // page default
+        const products = await Product.paginate({}, {page, limit: 10} ); // {/condições pra filtro}, {/pagina atual, tamanho}
 
         return res.json(products);
     },
