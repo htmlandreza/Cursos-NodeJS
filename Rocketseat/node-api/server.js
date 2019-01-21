@@ -1,10 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const requireDir = require("require-dir");
 
 // Iniciando o APP
 const app = express();
 app.use(express.json());
+app.use(cors()); // pode-se passar domínios específicos pra obter acesso
 
 // Iniciando o Database                     
 mongoose.connect(
